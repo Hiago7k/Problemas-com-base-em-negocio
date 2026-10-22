@@ -7,7 +7,7 @@ public class AuditoriaArmarios {
                 {1, 1, 1, 1, 1},
                 {0, 0, 1, 0, 0},
                 {1, 0, 0, 1, 1},
-                {1, 1, 1, 0, 0}
+                {1, 0, 0, 0, 1}
         };
 
 
@@ -29,21 +29,25 @@ public class AuditoriaArmarios {
                     totalOcupadosPorLinha++;
                 }
 
-                if (matriz[i][j] == 0){
+                // esse trecho aqui esta com  um bug
+                if (matriz[i][j] == 0) {
                     gruposDeArmariosLivrePorLinha++;
-                }else {
-                    maiorSeq = gruposDeArmariosLivrePorLinha;
+                } else {
+                    if (gruposDeArmariosLivrePorLinha > maiorSeq) {
+                        maiorSeq = gruposDeArmariosLivrePorLinha;
+                    }
                     gruposDeArmariosLivrePorLinha = 0;
                 }
             }
-            if (totalOcupadosPorLinha == 5){
+
+            if (totalOcupadosPorLinha == 5) {
                 qtdLinhasTotalmenteOcupadas++;
             }
 
-            if (gruposDeArmariosLivrePorLinha > maiorGrupo){
-                maiorGrupo = gruposDeArmariosLivrePorLinha;
-                maiorSeq = maiorGrupo;
+            if (maiorSeq > maiorGrupo) {
+                maiorGrupo = maiorSeq;
             }
+
         }
 
         System.out.printf("Total armários livres %d%n", totalArmariosLivres);
