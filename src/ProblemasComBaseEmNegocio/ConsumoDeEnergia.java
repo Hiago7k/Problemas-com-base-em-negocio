@@ -20,17 +20,17 @@ public class ConsumoDeEnergia {
         return somaTotal;
     }
 
-    public static int contarDiasAcimaDaMedia(int[] consumo){
+    public static int contarDiasAcimaDaMedia(int[] consumo) {
         int media = 0;
         int diasAcimaDaMedia = 0;
-        for (int i = 0; i < consumo.length; i++){
+        for (int i = 0; i < consumo.length; i++) {
             media += consumo[i];
         }
 
         media /= consumo.length;
 
-        for (int i = 0; i < consumo.length; i++){
-            if (consumo[i] > media){
+        for (int i = 0; i < consumo.length; i++) {
+            if (consumo[i] > media) {
                 diasAcimaDaMedia++;
             }
         }
